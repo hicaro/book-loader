@@ -1,0 +1,14 @@
+{
+  "name": "book-loader",
+  "version": "1.0.0",
+  "description": "Book set loader for typing from books",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Hicaro Adriano",
+  "license": "MIT",
+  "dependencies": {
+    "mongoose": "^4.11.6"
+  }
+}
