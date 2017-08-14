@@ -19,17 +19,20 @@ var load = function () {
 
     if (lineCouter == 0) {
       header = items;
+      lineCouter++;
     } else {
       var book = {};
 
-      header.forEach(function (key, i) {
-        book[key] = items[i];
-      });
+      if (header.length === items.length) {
+        header.forEach(function (key, i) {
+          book[key] = items[i];
+        });
 
-      Books.insert(book);
+        Books.insert(book);
+        lineCouter++;
+      }
     }
 
-    lineCouter++;
   });
 
   reader.on('close', function(){
