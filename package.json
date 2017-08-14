@@ -9,6 +9,7 @@
   "author": "Hicaro Adriano",
   "license": "MIT",
   "dependencies": {
+    "fast-csv": "^2.4.0",
     "mongoose": "^4.11.6"
   }
 }
