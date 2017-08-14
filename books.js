@@ -1,6 +1,6 @@
-var mongoose    = require('mongoose');
+var mongoose  = require('mongoose');
 
-var BooksSchema = new mongoose.Schema({
+var Schema    = new mongoose.Schema({
   title: String,
   author: String,
   text: String,
@@ -9,8 +9,24 @@ var BooksSchema = new mongoose.Schema({
   image: String
 });
 
-var Book = mongoose.model('Book', BookSchema);
+var Book = mongoose.model('Book', Schema);
+
+module.exports.cleanImport = function (cb) {
+  Book.remove({}, function (err) {
+    if (err) {
+      console.log(err);
+      mongoose.connection.close();
+    }
+    else {
+      cb();
+    }
+  });
+};
 
 module.exports.insert = function (book) {
-
+  Book.create(book, function (err, b){
+    if (err) {
+      console.log(err);
+    }
+  });
 };
