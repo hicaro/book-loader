@@ -1,7 +1,18 @@
 var mongoose = require('mongoose');
 
-if (process.env.NODE_ENV === "production") {
-  mongoose.connect("mongo://");
-} else {
-  mongoose.connect("mongo://localhost:27017");
-}
+module.exports.connect = function () {
+  var url = '';
+  if (process.env.NODE_ENV === "production") {
+    url = "mongodb://";
+  } else {
+    url = "mongodb://localhost:27017/typingfrombooks";
+  }
+
+  mongoose.connect(url, {
+    useMongoClient: true
+  });
+};
+
+module.exports.disconnect = function () {
+    mongoose.connection.close();
+};
