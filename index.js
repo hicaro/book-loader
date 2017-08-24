@@ -3,6 +3,9 @@ var fs        = require('fs');
 var db        = require('./db');
 var Books     = require('./books');
 
+// requires environment variables from .env file
+require('dotenv').config();
+
 // connect to database
 db.connect();
 

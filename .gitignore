@@ -1,3 +1,5 @@
 node_modules
 books.csv
 .~lock.books.csv#
+.env
+npm-debug.log
